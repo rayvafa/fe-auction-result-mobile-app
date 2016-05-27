@@ -1,15 +1,17 @@
 let React = require('react-native');
+
 let {
 	AppRegistry,
 	Component,
-	Text
-	} = React;
+} = React;
+
 import TaskList from './src/TaskList.js';
 
 class PluralTodo extends Component {
 
 	constructor(props, context) {
 		super(props, context);
+
 		this.state = {
 			todos: [
 				{
@@ -21,7 +23,9 @@ class PluralTodo extends Component {
 
 	render() {
 		return (
-			<TaskList />
+			<TaskList
+				todos={ this.state.todos }
+			/>
 		);
 	}
 
