@@ -2,7 +2,8 @@ import React from 'react-native';
 
 const {
 	Text,
-	View
+	View,
+	ListView
 } = React;
 
 class TaskList extends React.Component {

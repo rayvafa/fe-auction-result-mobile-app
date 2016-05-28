@@ -2,7 +2,7 @@ let React = require('react-native');
 
 let {
 	AppRegistry,
-	Component,
+	Component
 } = React;
 
 import TaskList from './src/TaskList.js';
