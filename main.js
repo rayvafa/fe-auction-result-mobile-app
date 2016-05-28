@@ -16,6 +16,9 @@ class PluralTodo extends Component {
 			todos: [
 				{
 					task: 'Learn React Native'
+				},
+				{
+					task: 'Unlearn React Native'
 				}
 			]
 		};
