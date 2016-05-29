@@ -2,7 +2,9 @@ let React = require('react-native');
 
 let {
 	AppRegistry,
-	Component
+	Component,
+	Navigator,
+	Text
 } = React;
 
 import TaskList from './src/TaskList.js';
@@ -25,14 +27,40 @@ class PluralTodo extends Component {
 	}
 
 	onAddStarted() {
-		console.log('onAddStarted');
+		this.nav.push({
+			name: 'taskform'
+		});
+	}
+
+	renderScene(route, nav) {
+		switch (route.name) {
+			case 'taskform':
+				return (
+					<Text style={{paddingTop: 20}}>Add form comes here!</Text>
+				);
+			default:
+				return (
+					<TaskList
+						todos={ this.state.todos }
+						onAddStarted={ this.onAddStarted.bind(this) }
+					/>
+				)
+		}
+	}
+
+	configureScene() {
+		return Navigator.SceneConfigs.FloatFromBottom;
 	}
 
 	render() {
 		return (
-			<TaskList
-				todos={ this.state.todos }
-				onAddStarted={ this.onAddStarted.bind(this) }
+			<Navigator
+				configureScene={this.configureScene}
+				initialRoute={{ name: 'tasklist', index: 0 }}
+				ref={ (nav) => {
+					this.nav = nav;
+				} }
+				renderScene={ this.renderScene.bind(this) }
 			/>
 		);
 	}
