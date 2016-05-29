@@ -24,10 +24,15 @@ class PluralTodo extends Component {
 		};
 	}
 
+	onAddStarted() {
+		console.log('onAddStarted');
+	}
+
 	render() {
 		return (
 			<TaskList
 				todos={ this.state.todos }
+				onAddStarted={ this.onAddStarted.bind(this) }
 			/>
 		);
 	}
