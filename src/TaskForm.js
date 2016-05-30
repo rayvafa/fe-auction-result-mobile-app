@@ -17,14 +17,25 @@ class TaskForm extends React.Component {
         };
     }
 
+    onChange(text) {
+        this.task = text;
+    }
+
+    onAddPressed() {
+        this.props.onAdd(this.task);
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <TextInput style={styles.input} />
+                <TextInput
+                    style={styles.input}
+                    onChangeText={this.onChange.bind(this)}
+                />
 
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={this.props.onAdd}
+                    onPress={this.onAddPressed.bind(this)}
                 >
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableHighlight>

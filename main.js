@@ -36,8 +36,10 @@ class PluralTodo extends Component {
 		this.nav.pop();
 	}
 
-	onAdd(){
-		console.log('onAdd');
+	onAdd(task){
+		this.state.todos.push({task});
+		this.setState({todos: this.state.todos});
+		this.nav.pop();
 	}
 
 	renderScene(route, nav) {
@@ -46,7 +48,7 @@ class PluralTodo extends Component {
 				return (
 					<TaskForm
 						onCancel={this.onCancel.bind(this)}
-						onAdd={this.onAdd.bind(this)}
+						onAdd={ this.onAdd.bind(this) }
 					/>
 				);
 			default:
