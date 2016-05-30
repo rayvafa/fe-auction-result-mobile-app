@@ -8,6 +8,7 @@ let {
 } = React;
 
 import TaskList from './src/TaskList.js';
+import TaskForm from './src/TaskForm.js';
 
 class PluralTodo extends Component {
 
@@ -36,7 +37,7 @@ class PluralTodo extends Component {
 		switch (route.name) {
 			case 'taskform':
 				return (
-					<Text style={{paddingTop: 20}}>Add form comes here!</Text>
+					<TaskForm />
 				);
 			default:
 				return (
