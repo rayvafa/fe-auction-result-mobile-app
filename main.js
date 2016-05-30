@@ -3,8 +3,7 @@ let React = require('react-native');
 let {
 	AppRegistry,
 	Component,
-	Navigator,
-	Text
+	Navigator
 } = React;
 
 import TaskList from './src/TaskList.js';
@@ -33,11 +32,22 @@ class PluralTodo extends Component {
 		});
 	}
 
+	onCancel(){
+		this.nav.pop();
+	}
+
+	onAdd(){
+		console.log('onAdd');
+	}
+
 	renderScene(route, nav) {
 		switch (route.name) {
 			case 'taskform':
 				return (
-					<TaskForm />
+					<TaskForm
+						onCancel={this.onCancel.bind(this)}
+						onAdd={this.onAdd.bind(this)}
+					/>
 				);
 			default:
 				return (

@@ -22,17 +22,28 @@ class TaskForm extends React.Component {
             <View style={styles.container}>
                 <TextInput style={styles.input} />
 
-                <TouchableHighlight style={styles.button}>
+                <TouchableHighlight
+                    style={styles.button}
+                    onPress={this.props.onAdd}
+                >
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight style={[styles.button, styles.cancelButton]}>
+                <TouchableHighlight
+                    style={[styles.button, styles.cancelButton]}
+                    onPress={this.props.onCancel}
+                >
                     <Text style={styles.buttonText}>Cancel</Text>
                 </TouchableHighlight>
             </View>
         );
     }
 }
+
+TaskForm.propTypes = {
+    onCancel: React.PropTypes.func.isRequired,
+    onAdd: React.PropTypes.func.isRequired
+};
 
 const styles = React.StyleSheet.create({
     container: {
