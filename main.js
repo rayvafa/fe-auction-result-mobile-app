@@ -42,6 +42,14 @@ class PluralTodo extends Component {
 		this.nav.pop();
 	}
 
+	onDone(todo) {
+		console.log('task is completed: ' + todo.task);
+		const filteredTodos = this.state.todos.filter((filterTodo) => {
+			return filterTodo !== todo;
+		});
+		this.setState({todos: filteredTodos});
+	}
+
 	renderScene(route, nav) {
 		switch (route.name) {
 			case 'taskform':
@@ -56,6 +64,7 @@ class PluralTodo extends Component {
 					<TaskList
 						todos={ this.state.todos }
 						onAddStarted={ this.onAddStarted.bind(this) }
+						onDone={ this.onDone.bind(this) }
 					/>
 				)
 		}

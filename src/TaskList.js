@@ -29,7 +29,10 @@ class TaskList extends React.Component {
 
 	renderRow(todo) {
 		return (
-			<TaskRow todo={todo} />
+			<TaskRow
+				todo={todo}
+				onDone={this.props.onDone}
+			/>
 		);
 	}
 
@@ -56,7 +59,8 @@ TaskList.propTypes = {
 	todos: React.PropTypes.arrayOf(
 		React.PropTypes.object.isRequired
 	),
-	onAddStarted: React.PropTypes.func.isRequired
+	onAddStarted: React.PropTypes.func.isRequired,
+	onDone: React.PropTypes.func.isRequired
 };
 
 const styles = React.StyleSheet.create({
