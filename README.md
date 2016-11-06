@@ -1,1 +1,1 @@
-plural-todo-app
+todo-list-app
